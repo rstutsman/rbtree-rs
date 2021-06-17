@@ -335,6 +335,8 @@ pub struct RBTree<K: Ord, V> {
     len: usize,
 }
 
+unsafe impl<K: Ord, V> Send for RBTree<K, V> {}
+
 // Drop all owned pointers if the tree is dropped
 impl<K: Ord, V> Drop for RBTree<K, V> {
     #[inline]
